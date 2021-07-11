@@ -440,6 +440,7 @@
     }
 
     footer {
+        margin-top: 2em;
         margin-left: 2em;
         grid-area: footer;
         width: 300px;
