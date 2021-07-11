@@ -24,6 +24,8 @@
         
     }
 
+    
+
     .image3 {
         margin-left: 10em;
         grid-area: image3;
@@ -58,9 +60,7 @@
         grid-area: capabilities;
     }
 
-    .capabilities p span {
-        color: #ed462f; font-size: 30px; font-weight: bold;
-    }
+    
 
     .capabilities2 {
         margin-top: 5em;
@@ -84,6 +84,16 @@
         line-height: 65px;
         font-family: "Source Sans Pro", sans-serif;
     }
+    .capabilities2 ul {
+        margin-top: 1em;
+        margin-left: 1em;
+    }
+
+    .capabilities2 ul li {
+        font-family: "Source Sans Pro", sans-serif;
+        font-size: 25px;
+        margin-top: 1em;
+    }
 
     .capabilities2 p {
         color: white;
@@ -91,6 +101,14 @@
         font-family: "Source Sans Pro", sans-serif;
         margin-top: 2em;
         line-height: 2em;
+    }
+
+    .capabilities2 h3 {
+        text-align: start;
+        margin-top: 3em;
+        font-size: 25px;
+        color: tomato;
+        font-family: "Source Sans Pro", sans-serif;
     }
 
 
@@ -115,7 +133,7 @@
         line-height: 1em;
         margin-top: 50px;
         font-weight: 700;
-        color: rgb(17, 204, 158);
+        color: #27ab78;
     }
     .capabilities p {
         font-size: 1.5em;
@@ -358,12 +376,12 @@
 
     footer form label {
         font-family: "Source Sans Pro", sans-serif;
-        font-size: 20px;
+        font-size: 17px;
     }
 
     footer form input{
         margin: 1em;
-        padding: .5em; 
+        padding: .3em; 
         background-color: black;
         border: none;
         outline: none;
@@ -372,7 +390,7 @@
         
         color: rgb(163, 38, 163);
         font-family: "Source Sans Pro", sans-serif;
-        font-size: 1.5em;
+        font-size: 1em;
     }
 
     .submit-button {
@@ -409,8 +427,10 @@
     }
 
     footer form textarea {
-        font-family: "Source Sans Pro", sans-serif; padding: 1rem; resize:none; font-size: 1.5em; line-height: 1em;
+        font-family: "Source Sans Pro", sans-serif; padding: 1rem; resize:none; font-size: 1em; line-height: 1em;
     }
+
+   
 
    
 }
@@ -442,6 +462,7 @@
     footer {
         margin-top: 2em;
         margin-left: 2em;
+        margin-right: 2em;
         grid-area: footer;
         width: 300px;
     }
@@ -489,6 +510,7 @@
     }
 
     .capabilities {
+        margin-right: 2em;
         margin-top: 3em;
         margin-left: 2em;
         width: 300px;
@@ -531,6 +553,55 @@
         color: #ed462f; font-size: 20px; font-weight: bold;
     }
 
+    .capabilities2 {
+        margin-top: 5em;
+        width: 300px;
+        margin-left: 2em;
+        margin-right: 2em;
+        margin-bottom: 3em;
+        grid-area: capabilities2;
+    }
+    .capabilities2 h1 {
+        font-family: "Source Sans Pro", sans-serif;
+            margin-bottom: 1em;
+            font-size: 20px;
+            line-height: 1em;
+            margin-top: 50px;
+            font-weight: 700;
+            color: rgb(17, 204, 158);
+    } 
+
+    .capabilities2 h3 {
+        text-align: start;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        font-size: 20px;
+        color: tomato;
+        font-family: "Source Sans Pro", sans-serif;
+    }
+    .capabilities2 ul {
+        margin-left: 2em;
+        margin-right: 2em;
+    }
+    .capabilities2 ul li {
+        margin-top: 1em;
+        font-family: "Source Sans Pro", sans-serif;
+    }
+
+    .capabilities2 span {
+        font-size: 20px;
+        font-family: "Source Sans Pro", sans-serif;
+        color: white;
+    }
+
+    .capabilities2 p {
+        margin-top: 1em;
+        font-size: 17px;
+        line-height: 1.5em;
+        font-family: "Source Sans Pro", sans-serif;
+        color: white;
+       
+    }
     .offers {
         margin-top: 1em;
         margin-left: 2em;
@@ -688,7 +759,6 @@
 
     .testimonials {
         width: 300px;
-        margin-top: -10em;
         margin-left: 2em;
         display: flex;
         flex-direction: column;
