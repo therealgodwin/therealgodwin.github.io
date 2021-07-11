@@ -390,6 +390,7 @@
         display: none;
         width: fit-content;
         z-index: 10;
+        background-color: white;
     }
 
     .alert h1{
@@ -398,6 +399,7 @@
         font-size: 2em;
         text-align: center;
         padding: 2px;
+        color: black;
     }
 
    
