@@ -27,7 +27,6 @@
                 <p>Completed over 100+ projects with people all around the globe. Can also make you a website with <span style="color:#ed462f">Django</span> and other popular frameworks.</p>
                 <h4><a href="#skills"> Check out my skills </a></h4> 
             </main>
-#
             <div class="myimage">
                 <img src="assets/images/mypic.png" alt="" width="75%" style="margin-left: 5em;">
             </div>
@@ -136,14 +135,18 @@
         <footer>
             <p>Contact Me</p>
 
-            <form action="" method="post">
-                <label for="name" style="color: white;">First Name: </label><input type="text" name="name" placeholder="First Name" required> 
-                <label for="name" style="color: white;">Last Name: </label><input type="text" name="name" placeholder="Last Name" required> <br>
+            <form method="post" id="message-form">
+                <label for="name" style="color: white;">First Name: </label><input type="text" name="name" id="firstName" placeholder="First Name" required> 
+                <label for="name" style="color: white;">Last Name: </label><input type="text" name="name" id="lastName" placeholder="Last Name" required> <br>
                 <h1 style="color: white; font-family: 'Source Sans Pro', sans-serif;  margin-bottom: .5em; font-size: 1.5em;" >Your thoughts:</h1>
-                <textarea name="message" placeholder="Write your special requests, feedbacks, thoughts, literally anything you have in mind." id="" cols="40" rows="5" style='font-family: "Source Sans Pro", sans-serif; padding: 1rem; resize:none; font-size: 1.5em; line-height: 1em;' required></textarea>
+                <textarea name="message" id="message" placeholder="Write your special requests, feedbacks, thoughts, literally anything you have in mind." cols="30" rows="3" style='font-family: "Source Sans Pro", sans-serif; padding: 1rem; resize:none; font-size: 1.5em; line-height: 1em;' required></textarea>
                 <br>
                 <input type="submit" value="Submit" class="submit-button">
             </form>
+
+            <div class="alert">
+                <h1>Thank you for sending me your feedback, <span>Godwin</span>!</h1>
+            </div>
 
             <section>
                 <h1 align="center" style="color: white; margin: 1em; font-family: 'Source Sans Pro', sans-serif; font-weight: 100; ">This site is made from scratch with HTML and CSS only. Follow me on <a href="https://web.facebook.com/godwiiiinnn" style="text-decoration: none;">Facebook</a>!</h1>
@@ -151,8 +154,78 @@
         </footer>
        
     </div>
-   
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyAMrzQuH3iVeyPPH2es5aGGnp3bcmJjApI",
+        authDomain: "therealgodwinwebsite.firebaseapp.com",
+        projectId: "therealgodwinwebsite",
+        storageBucket: "therealgodwinwebsite.appspot.com",
+        messagingSenderId: "1001854701719",
+        appId: "1:1001854701719:web:12f4c3ce90f7fc957419d2"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
     
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+
+        const dbRef = firebase.database().ref();
+
+        function savePersonFeedback(firstName, lastName, message) {
+            var person = {
+                firstName : firstName,
+                lastName : lastName,
+                message : message
+            };
+
+            var firstName;
+        
+            firebase.database().ref('feedback-entries').push().set(person)
+                .then(function(snapshot) {
+                    dbRef.child("feedback-entries").on("value", function (snapshot) {
+                        snapshot.forEach(function(childSnapshot) {
+                         firstName=childSnapshot.val().firstName;
+                         console.log(firstName);
+                        });
+                      });
+                    $(".alert").find("span").text(firstName);
+                    $(".alert").show().delay(1000).fadeOut();
+                   
+
+                }, function(error) {
+                    console.log('error' + error);
+                    error(); // some error method
+                });
+        }
+        $("#message-form").submit(function (e) {
+            e.preventDefault();
+
+            var firstName = $("#firstName").val();
+            var lastName = $("#lastName").val();
+            var message = $("#message").val();
+            
+
+            savePersonFeedback(firstName, lastName, message);
+
+            
+        })
+
+       
+        
+       
+            
+    </script>
     
 </body>
 </html>

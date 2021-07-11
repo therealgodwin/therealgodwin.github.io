@@ -383,6 +383,25 @@
         color: white;
     }
 
+    .alert {
+        align-self: center;
+        position: absolute;
+        height: fit-content;
+        display: none;
+        width: fit-content;
+        z-index: 10;
+        background-color: white;
+    }
+
+    .alert h1{
+        font-weight: 300;
+        font-family: "Source Sans Pro", sans-serif;
+        font-size: 2em;
+        text-align: center;
+        color: black;
+        padding: 2px;
+    }
+
    
 }
 
